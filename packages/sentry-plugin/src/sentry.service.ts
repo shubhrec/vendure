@@ -26,8 +26,10 @@ export class SentryService implements OnApplicationBootstrap, OnApplicationShutd
         return Sentry.close();
     }
 
-    captureException(exception: Error) {
-        Sentry.captureException(exception);
+    captureException(exception: Error,flag: any) {
+        if(flag){
+            Sentry.captureException(exception);
+        }
     }
 
     captureMessage(message: string, captureContext?: CaptureContext) {
